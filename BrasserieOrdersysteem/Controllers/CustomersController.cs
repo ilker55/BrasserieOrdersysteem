@@ -1,4 +1,4 @@
-﻿using BrasserieOrdersysteem.Models;
+﻿using BrasserieOrdersysteem.Shared.Models;
 using Microsoft.AspNetCore.Mvc;
 using BrasserieOrdersysteem.DAL;
 

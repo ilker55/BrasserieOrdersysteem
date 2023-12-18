@@ -1,4 +1,4 @@
-﻿namespace BrasserieOrdersysteem.Models
+﻿namespace BrasserieOrdersysteem.Shared.Models
 {
     public class OrderRule
     {
@@ -6,6 +6,6 @@
         public double Price { get; set; }
         public double VAT { get; set; }
 
-        public Product Product { get; set; }
+        public virtual Product Product { get; set; }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace BrasserieOrdersysteem.Models
+﻿namespace BrasserieOrdersysteem.Shared.Models
 {
     public class Product
     {

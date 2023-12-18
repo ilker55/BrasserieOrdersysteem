@@ -1,3 +1,4 @@
+using BrasserieOrdersysteem.DAL;
 using BrasserieOrdersysteem.Repositories;
 using Microsoft.EntityFrameworkCore;
 
@@ -6,8 +7,14 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers();
-builder.Services.AddDbContext<CustomersContext>(opt =>
-    opt.UseInMemoryDatabase("Brasserie"));
+
+// Load DB contexes with in-memory database
+var inMemoryDatabase = "Brasserie";
+builder.Services.AddDbContext<CustomersContext>(opt => opt.UseInMemoryDatabase(inMemoryDatabase));
+
+// Load repositories
+builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

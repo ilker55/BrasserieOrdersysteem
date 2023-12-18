@@ -16,24 +16,17 @@ namespace BrasserieOrdersysteem.DAL
         public Customer? GetCustomerByID(int customerId)
             => context.Customers.Find(customerId);
 
-        public void AddCustomer(Customer customer, bool softSave = false)
-        {
-            context.Customers.Add(customer);
-            if (!softSave) Save();
-        }
+        public void AddCustomer(Customer customer)
+            => context.Customers.Add(customer);
 
-        public void UpdateCustomer(Customer customer, bool softSave = false)
-        {
-            context.Entry(customer).State = EntityState.Modified;
-            if (!softSave) Save();
-        }
+        public void UpdateCustomer(Customer customer)
+            => context.Entry(customer).State = EntityState.Modified;
 
-        public bool DeleteCustomer(int customerId, bool softSave = false)
+        public bool DeleteCustomer(int customerId)
         {
             var customer = context.Customers.Find(customerId);
             if (customer == null) return false;
             context.Customers.Remove(customer);
-            if (!softSave) Save();
             return true;
         }
 

@@ -6,9 +6,9 @@ namespace BrasserieOrdersysteem.DAL
     {
         IEnumerable<Customer> GetCustomers();
         Customer? GetCustomerByID(int customerId);
-        void AddCustomer(Customer customer, bool softSave = false);
-        void UpdateCustomer(Customer customer, bool softSave = false);
-        bool DeleteCustomer(int customerId, bool softSave = false);
+        void AddCustomer(Customer customer);
+        void UpdateCustomer(Customer customer);
+        bool DeleteCustomer(int customerId);
         void Save();
     }
 }

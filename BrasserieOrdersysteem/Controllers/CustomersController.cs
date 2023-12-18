@@ -1,4 +1,4 @@
-﻿using BrasserieOrdersysteem.Shared.Models;
+﻿using BrasserieOrdersysteem.Models;
 using Microsoft.AspNetCore.Mvc;
 using BrasserieOrdersysteem.DAL;
 
@@ -15,9 +15,9 @@ namespace BrasserieOrdersysteem.Controllers
 
         // GET: api/Customers
         [HttpGet]
-        public IEnumerable<Customer> GetCustomers()
+        public ActionResult<IList<Customer>> GetCustomers()
             // Return all customers
-            => customerRepository.GetCustomers();
+            => customerRepository.GetCustomers().ToList();
 
         // GET: api/Customers/16
         [HttpGet("{id}")]

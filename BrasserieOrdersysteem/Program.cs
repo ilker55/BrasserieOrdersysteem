@@ -1,5 +1,4 @@
 using BrasserieOrdersysteem.DAL;
-using BrasserieOrdersysteem.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,8 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 
 // Load DB contexes with in-memory database
-var inMemoryDatabase = "Brasserie";
-builder.Services.AddDbContext<CustomersContext>(opt => opt.UseInMemoryDatabase(inMemoryDatabase));
+builder.Services.AddDbContext<OrderSystemContext>(opt => opt.UseInMemoryDatabase("Brasserie"));
 
 // Load repositories
 builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();

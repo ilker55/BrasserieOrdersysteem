@@ -7,8 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrasserieOrdersysteem", "Br
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrasserieOrdersysteem.Test", "BrasserieOrdersysteem.Test\BrasserieOrdersysteem.Test.csproj", "{EBA4FA2A-87E0-46D5-8742-9E82B8F79FCC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrasserieOrdersysteem.Shared", "BrasserieOrdersysteem.Shared\BrasserieOrdersysteem.Shared.csproj", "{4B460D80-8A05-4950-8088-7E17647263FA}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,10 +21,6 @@ Global
 		{EBA4FA2A-87E0-46D5-8742-9E82B8F79FCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EBA4FA2A-87E0-46D5-8742-9E82B8F79FCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EBA4FA2A-87E0-46D5-8742-9E82B8F79FCC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4B460D80-8A05-4950-8088-7E17647263FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4B460D80-8A05-4950-8088-7E17647263FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4B460D80-8A05-4950-8088-7E17647263FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4B460D80-8A05-4950-8088-7E17647263FA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

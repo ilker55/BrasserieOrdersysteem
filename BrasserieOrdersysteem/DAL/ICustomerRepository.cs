@@ -1,4 +1,4 @@
-﻿using BrasserieOrdersysteem.Shared.Models;
+﻿using BrasserieOrdersysteem.Models;
 
 namespace BrasserieOrdersysteem.DAL
 {

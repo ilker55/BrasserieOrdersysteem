@@ -1,17 +1,14 @@
-﻿using BrasserieOrdersysteem.Repositories;
-using BrasserieOrdersysteem.Shared.Models;
+﻿using BrasserieOrdersysteem.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace BrasserieOrdersysteem.DAL
 {
     public class CustomerRepository : ICustomerRepository
     {
-        private readonly CustomersContext context;
+        private readonly OrderSystemContext context;
 
-        public CustomerRepository(CustomersContext context)
-        {
-            this.context = context;
-        }
+        public CustomerRepository(OrderSystemContext context)
+            => this.context = context;
 
         public IEnumerable<Customer> GetCustomers()
             => context.Customers.ToList();

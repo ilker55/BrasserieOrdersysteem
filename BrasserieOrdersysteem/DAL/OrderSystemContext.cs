@@ -17,53 +17,34 @@ namespace BrasserieOrdersysteem.DAL
         private static Product[] GetProducts()
             => new Product[]
             {
-                new() {
-                    Id = 1,
-                    Name = "Croque Monsieur",
-                    Description = "A classic French grilled ham and cheese sandwich, typically made with Gruyère cheese and topped with béchamel sauce.",
-                    Price = 12.99
-                },
-                new() {
-                    Id = 2,
-                    Name = "Moules Frites",
-                    Description = "Mussels served with a side of crispy French fries. This dish is often prepared with a flavorful broth, such as white wine, garlic, and herbs.",
-                    Price = 16.99
-                },
-                new() {
-                    Id = 3,
-                    Name = "Quiche Lorraine",
-                    Description = "A savory tart filled with a creamy mixture of eggs, cream, bacon or lardons, and Swiss cheese. Quiche Lorraine is a popular dish in French cuisine.",
-                    Price = 14.99
-                },
-                new() {
-                    Id = 4,
-                    Name = "Bouillabaisse",
-                    Description = "A traditional Provençal fish stew originating from the port city of Marseille. It typically includes a variety of fish, shellfish, and aromatic herbs in a broth seasoned with Mediterranean herbs and spices.",
-                    Price = 22.99
-                },
-                new() {
-                    Id = 5,
-                    Name = "Tarte Tatin",
-                    Description = "A caramelized upside-down pastry, usually made with apples. The tart is baked with the fruit on the bottom and a layer of pastry on top, then inverted before serving.",
-                    Price = 8.99
-                }
+                new("Croque Monsieur",
+                    12.99,
+                    "A classic French grilled ham and cheese sandwich, typically made with Gruyère cheese and topped with béchamel sauce.")
+                { Id = 1 },
+                new("Moules Frites",
+                    16.99,
+                    "Mussels served with a side of crispy French fries. This dish is often prepared with a flavorful broth, such as white wine, garlic, and herbs.")
+                { Id = 2 },
+                new("Quiche Lorraine",
+                    14.99,
+                    "A savory tart filled with a creamy mixture of eggs, cream, bacon or lardons, and Swiss cheese. Quiche Lorraine is a popular dish in French cuisine.")
+                { Id = 3 },
+                new("Bouillabaisse",
+                    22.99,
+                    "A traditional Provençal fish stew originating from the port city of Marseille. It typically includes a variety of fish, shellfish, and aromatic herbs in a broth seasoned with Mediterranean herbs and spices.")
+                { Id = 4 },
+                new("Tarte Tatin",
+                    8.99,
+                    "A caramelized upside-down pastry, usually made with apples. The tart is baked with the fruit on the bottom and a layer of pastry on top, then inverted before serving.")
+                { Id = 5 }
             };
 
         private static Customer[] GetCustomers()
             => new Customer[]
             {
-                new() {
-                    Id = 1,
-                    Name = "Elena Martinez"
-                },
-                new() {
-                    Id = 2,
-                    Name = "Jonathan Turner"
-                },
-                new() {
-                    Id = 3,
-                    Name = "Sophie Anderson"
-                }
+                new("Elena Martinez") { Id = 1 },
+                new("Jonathan Turner") { Id = 2 },
+                new("Sophie Anderson") { Id = 3 }
             };
 
         private static Order[] GetOrders()

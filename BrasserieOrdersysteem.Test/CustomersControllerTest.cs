@@ -15,11 +15,7 @@ namespace BrasserieOrdersysteem.Test
             var mockRepository = new Mock<ICustomerRepository>();
             mockRepository
                 .Setup(m => m.GetCustomerByID(1))
-                .Returns(new Customer
-                {
-                    Id = 1,
-                    Name = "Elena Martinez"
-                });
+                .Returns(new Customer("Elena Martinez") { Id = 1 });
 
             var controller = new CustomersController(mockRepository.Object);
 
@@ -40,18 +36,9 @@ namespace BrasserieOrdersysteem.Test
                 .Setup(m => m.GetCustomers())
                 .Returns(new Customer[]
                 {
-                    new() {
-                        Id = 1,
-                        Name = "Elena Martinez"
-                    },
-                    new() {
-                        Id = 2,
-                        Name = "Jonathan Turner"
-                    },
-                    new() {
-                        Id = 3,
-                        Name = "Sophie Anderson"
-                    }
+                    new("Elena Martinez") { Id = 1 },
+                    new("Jonathan Turner") { Id = 2 },
+                    new("Sophie Anderson") { Id = 3 }
                 });
 
             var controller = new CustomersController(mockRepository.Object);
@@ -73,11 +60,7 @@ namespace BrasserieOrdersysteem.Test
             var controller = new CustomersController(mockRepository.Object);
 
             // Act
-            controller.CreateCustomer(new Customer
-            {
-                Id = 1,
-                Name = "Sophie Anderson"
-            });
+            controller.CreateCustomer(new Customer("Sophie Anderson") { Id = 1 });
 
             // Assert
             mockRepository.Verify(r => r.AddCustomer(It.IsAny<Customer>()));
@@ -92,11 +75,7 @@ namespace BrasserieOrdersysteem.Test
             var controller = new CustomersController(mockRepository.Object);
 
             // Act
-            controller.UpdateCustomer(1, new Customer
-            {
-                Id = 1,
-                Name = "Elena Martinez"
-            });
+            controller.UpdateCustomer(1, new Customer("Elena Martinez") { Id = 1 });
 
             // Assert
             mockRepository.Verify(r => r.UpdateCustomer(It.IsAny<Customer>()));

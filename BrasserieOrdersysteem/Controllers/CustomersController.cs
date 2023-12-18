@@ -23,7 +23,7 @@ namespace BrasserieOrdersysteem.Controllers
         [HttpGet("{id}")]
         public ActionResult<Customer> GetCustomer(int id)
         {
-            // Return customer found by ID, NotFound otherwise
+            // Return customer found by ID, otherwise NotFound
             var customer = customerRepository.GetCustomerByID(id);
             return customer != null ? customer : NotFound();
         }
@@ -64,7 +64,7 @@ namespace BrasserieOrdersysteem.Controllers
             var deleted = customerRepository.DeleteCustomer(id);
             customerRepository.Save();
 
-            //Return NoContent on success, NotFound otherwise
+            //Return NoContent on success, otherwise NotFound
             return deleted ? NoContent() : NotFound();
         }
     }

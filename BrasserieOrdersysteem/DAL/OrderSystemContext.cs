@@ -14,6 +14,17 @@ namespace BrasserieOrdersysteem.DAL
         {
         }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            // Add example data
+            modelBuilder.Entity<Product>().HasData(GetProducts());
+            modelBuilder.Entity<Customer>().HasData(GetCustomers());
+            modelBuilder.Entity<Order>().HasData(GetOrders());
+            modelBuilder.Entity<OrderRule>().HasData(GetOrderRules());
+        }
+
         private static Product[] GetProducts()
             => new Product[]
             {
@@ -121,15 +132,5 @@ namespace BrasserieOrdersysteem.DAL
                     ProductId = 5
                 }
             };
-
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            base.OnModelCreating(modelBuilder);
-
-            modelBuilder.Entity<Product>().HasData(GetProducts());
-            modelBuilder.Entity<Customer>().HasData(GetCustomers());
-            modelBuilder.Entity<Order>().HasData(GetOrders());
-            modelBuilder.Entity<OrderRule>().HasData(GetOrderRules());
-        }
     }
 }

@@ -13,6 +13,6 @@
 
         public virtual ICollection<OrderRule> OrderRules { get; } = new List<OrderRule>();
 
-        public double GetTotalPrice() => OrderRules.Sum(x => x.GetTotalPrice());
+        public decimal GetTotalPrice() => OrderRules.Sum(x => x.GetTotalPrice());
     }
 }

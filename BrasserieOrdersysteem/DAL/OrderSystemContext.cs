@@ -29,23 +29,23 @@ namespace BrasserieOrdersysteem.DAL
             => new Product[]
             {
                 new("Croque Monsieur",
-                    12.99,
+                    12.99m,
                     "A classic French grilled ham and cheese sandwich, typically made with Gruyère cheese and topped with béchamel sauce.")
                 { Id = 1 },
                 new("Moules Frites",
-                    16.99,
+                    16.99m,
                     "Mussels served with a side of crispy French fries. This dish is often prepared with a flavorful broth, such as white wine, garlic, and herbs.")
                 { Id = 2 },
                 new("Quiche Lorraine",
-                    14.99,
+                    14.99m,
                     "A savory tart filled with a creamy mixture of eggs, cream, bacon or lardons, and Swiss cheese. Quiche Lorraine is a popular dish in French cuisine.")
                 { Id = 3 },
                 new("Bouillabaisse",
-                    22.99,
+                    22.99m,
                     "A traditional Provençal fish stew originating from the port city of Marseille. It typically includes a variety of fish, shellfish, and aromatic herbs in a broth seasoned with Mediterranean herbs and spices.")
                 { Id = 4 },
                 new("Tarte Tatin",
-                    8.99,
+                    8.99m,
                     "A caramelized upside-down pastry, usually made with apples. The tart is baked with the fruit on the bottom and a layer of pastry on top, then inverted before serving.")
                 { Id = 5 }
             };
@@ -92,42 +92,42 @@ namespace BrasserieOrdersysteem.DAL
                 new() {
                     Id = 1,
                     Units = 4,
-                    PricePerUnit = 12.99,
+                    PricePerUnit = 12.99m,
                     OrderId = 1,
                     ProductId = 1
                 },
                 new() {
                     Id = 2,
                     Units = 2,
-                    PricePerUnit = 16.99,
+                    PricePerUnit = 16.99m,
                     OrderId = 2,
                     ProductId = 2
                 },
                 new() {
                     Id = 3,
                     Units = 1,
-                    PricePerUnit = 16.99,
+                    PricePerUnit = 16.99m,
                     OrderId = 3,
                     ProductId = 2
                 },
                 new() {
                     Id = 4,
                     Units = 1,
-                    PricePerUnit = 14.99,
+                    PricePerUnit = 14.99m,
                     OrderId = 3,
                     ProductId = 3
                 },
                 new() {
                     Id = 5,
                     Units = 1,
-                    PricePerUnit = 22.99,
+                    PricePerUnit = 22.99m,
                     OrderId = 4,
                     ProductId = 4
                 },
                 new() {
                     Id = 6,
                     Units = 2,
-                    PricePerUnit = 8.99,
+                    PricePerUnit = 8.99m,
                     OrderId = 4,
                     ProductId = 5
                 }

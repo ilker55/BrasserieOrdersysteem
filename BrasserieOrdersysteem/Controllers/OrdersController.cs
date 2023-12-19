@@ -1,7 +1,5 @@
 ﻿using BrasserieOrdersysteem.DAL;
 using BrasserieOrdersysteem.Models;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BrasserieOrdersysteem.Controllers
@@ -15,12 +13,27 @@ namespace BrasserieOrdersysteem.Controllers
         public OrdersController(IOrderRepository orderRepository)
             => this.orderRepository = orderRepository;
 
+        // GET: api/Orders
+        [HttpGet]
+        public ActionResult<IList<Order>> GetOrders()
+            // Return all orders
+            => orderRepository.GetAll().ToList();
+
+        // GET: api/Orders/4
+        [HttpGet("{id}")]
+        public ActionResult<Order> GetOrder(int id)
+        {
+            // Return order found by ID, otherwise NotFound
+            var order = orderRepository.GetByID(id);
+            return order != null ? order : NotFound();
+        }
+
         // POST: api/Orders
         [HttpPost]
         public ActionResult CreateOrder(Order order)
         {
             // Add new order and save
-            orderRepository.AddOrder(order);
+            orderRepository.Insert(order);
             orderRepository.Save();
 
             // Return Created
@@ -35,20 +48,20 @@ namespace BrasserieOrdersysteem.Controllers
             if (id != order.Id)
                 return BadRequest();
 
-            // Update customer and save
-            orderRepository.UpdateOrder(order);
+            // Update order and save
+            orderRepository.Update(order);
             orderRepository.Save();
 
             // Return NoContent
             return NoContent();
         }
 
-        // DELETE: api/Orders/16
+        // DELETE: api/Orders/4
         [HttpDelete("{id}")]
         public ActionResult DeleteOrder(int id)
         {
             // Delete order by ID and save
-            var deleted = orderRepository.DeleteOrder(id);
+            var deleted = orderRepository.Delete(id);
             orderRepository.Save();
 
             //Return NoContent on success, otherwise NotFound

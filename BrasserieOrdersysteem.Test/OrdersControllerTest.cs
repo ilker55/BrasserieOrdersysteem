@@ -10,6 +10,49 @@ namespace BrasserieOrdersysteem.Test
     public class OrdersControllerTest
     {
         [Fact]
+        public void GetOrder()
+        {
+            // Arrange
+            var mockRepository = new Mock<IOrderRepository>();
+            mockRepository
+                .Setup(m => m.GetByID(1))
+                .Returns(new Order() { Id = 1 });
+
+            var controller = new OrdersController(mockRepository.Object);
+
+            // Act
+            var order = controller.GetOrder(1).Value;
+
+            // Assert
+            mockRepository.Verify(r => r.GetByID(1));
+            Assert.Equal(1, order.Id);
+        }
+
+        [Fact]
+        public void GetOrders()
+        {
+            // Arrange
+            var mockRepository = new Mock<IOrderRepository>();
+            mockRepository
+                .Setup(m => m.GetAll())
+                .Returns(new Order[]
+                {
+                    new() { Id = 1 },
+                    new() { Id = 2 },
+                    new() { Id = 3 }
+                });
+
+            var controller = new OrdersController(mockRepository.Object);
+
+            // Act
+            var orders = controller.GetOrders().Value;
+
+            // Assert
+            mockRepository.Verify(r => r.GetAll());
+            Assert.Equal(1, orders[0].Id);
+            Assert.Equal(2, orders[1].Id);
+        }
+        [Fact]
         public void CreateOrder()
         {
             // Arrange
@@ -25,7 +68,7 @@ namespace BrasserieOrdersysteem.Test
             });
 
             // Assert
-            mockRepository.Verify(r => r.AddOrder(It.IsAny<Order>()));
+            mockRepository.Verify(r => r.Insert(It.IsAny<Order>()));
             mockRepository.Verify(r => r.Save());
         }
 
@@ -45,7 +88,7 @@ namespace BrasserieOrdersysteem.Test
             });
 
             // Assert
-            mockRepository.Verify(r => r.UpdateOrder(It.IsAny<Order>()));
+            mockRepository.Verify(r => r.Update(It.IsAny<Order>()));
             mockRepository.Verify(r => r.Save());
         }
 
@@ -55,7 +98,7 @@ namespace BrasserieOrdersysteem.Test
             // Arrange
             var mockRepository = new Mock<IOrderRepository>();
             mockRepository
-                .Setup(m => m.DeleteOrder(1))
+                .Setup(m => m.Delete(1))
                 .Returns(true);
 
             var controller = new OrdersController(mockRepository.Object);
@@ -64,7 +107,7 @@ namespace BrasserieOrdersysteem.Test
             controller.DeleteOrder(1);
 
             // Assert
-            mockRepository.Verify(r => r.DeleteOrder(1));
+            mockRepository.Verify(r => r.Delete(1));
             mockRepository.Verify(r => r.Save());
         }
     }

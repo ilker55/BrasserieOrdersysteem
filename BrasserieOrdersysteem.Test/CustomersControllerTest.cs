@@ -14,7 +14,7 @@ namespace BrasserieOrdersysteem.Test
             // Arrange
             var mockRepository = new Mock<ICustomerRepository>();
             mockRepository
-                .Setup(m => m.GetCustomerByID(1))
+                .Setup(m => m.GetByID(1))
                 .Returns(new Customer("Elena Martinez") { Id = 1 });
 
             var controller = new CustomersController(mockRepository.Object);
@@ -23,7 +23,7 @@ namespace BrasserieOrdersysteem.Test
             var customer = controller.GetCustomer(1).Value;
 
             // Assert
-            mockRepository.Verify(r => r.GetCustomerByID(1));
+            mockRepository.Verify(r => r.GetByID(1));
             Assert.Equal("Elena Martinez", customer.Name);
         }
 
@@ -33,7 +33,7 @@ namespace BrasserieOrdersysteem.Test
             // Arrange
             var mockRepository = new Mock<ICustomerRepository>();
             mockRepository
-                .Setup(m => m.GetCustomers())
+                .Setup(m => m.GetAll())
                 .Returns(new Customer[]
                 {
                     new("Elena Martinez") { Id = 1 },
@@ -47,7 +47,7 @@ namespace BrasserieOrdersysteem.Test
             var customers = controller.GetCustomers().Value;
 
             // Assert
-            mockRepository.Verify(r => r.GetCustomers());
+            mockRepository.Verify(r => r.GetAll());
             Assert.Equal("Elena Martinez", customers[0].Name);
             Assert.Equal("Jonathan Turner", customers[1].Name);
         }
@@ -63,7 +63,7 @@ namespace BrasserieOrdersysteem.Test
             controller.CreateCustomer(new Customer("Sophie Anderson") { Id = 1 });
 
             // Assert
-            mockRepository.Verify(r => r.AddCustomer(It.IsAny<Customer>()));
+            mockRepository.Verify(r => r.Insert(It.IsAny<Customer>()));
             mockRepository.Verify(r => r.Save());
         }
 
@@ -78,7 +78,7 @@ namespace BrasserieOrdersysteem.Test
             controller.UpdateCustomer(1, new Customer("Elena Martinez") { Id = 1 });
 
             // Assert
-            mockRepository.Verify(r => r.UpdateCustomer(It.IsAny<Customer>()));
+            mockRepository.Verify(r => r.Update(It.IsAny<Customer>()));
             mockRepository.Verify(r => r.Save());
         }
 
@@ -88,7 +88,7 @@ namespace BrasserieOrdersysteem.Test
             // Arrange
             var mockRepository = new Mock<ICustomerRepository>();
             mockRepository
-                .Setup(m => m.DeleteCustomer(1))
+                .Setup(m => m.Delete(1))
                 .Returns(true);
 
             var controller = new CustomersController(mockRepository.Object);
@@ -97,7 +97,7 @@ namespace BrasserieOrdersysteem.Test
             controller.DeleteCustomer(1);
 
             // Assert
-            mockRepository.Verify(r => r.DeleteCustomer(1));
+            mockRepository.Verify(r => r.Delete(1));
             mockRepository.Verify(r => r.Save());
         }
     }

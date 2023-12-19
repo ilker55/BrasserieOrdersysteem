@@ -10,19 +10,19 @@ namespace BrasserieOrdersysteem.DAL
         public CustomerRepository(OrderSystemContext context)
             => this.context = context;
 
-        public IEnumerable<Customer> GetCustomers()
+        public IEnumerable<Customer> GetAll()
             => context.Customers.ToList();
 
-        public Customer? GetCustomerByID(int customerId)
+        public Customer? GetByID(int customerId)
             => context.Customers.Find(customerId);
 
-        public void AddCustomer(Customer customer)
+        public void Insert(Customer customer)
             => context.Customers.Add(customer);
 
-        public void UpdateCustomer(Customer customer)
+        public void Update(Customer customer)
             => context.Entry(customer).State = EntityState.Modified;
 
-        public bool DeleteCustomer(int customerId)
+        public bool Delete(int customerId)
         {
             var customer = context.Customers.Find(customerId);
             if (customer == null) return false;

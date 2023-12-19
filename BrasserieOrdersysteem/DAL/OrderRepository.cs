@@ -10,13 +10,19 @@ namespace BrasserieOrdersysteem.DAL
         public OrderRepository(OrderSystemContext context)
             => this.context = context;
 
-        public void AddOrder(Order order)
+        public IEnumerable<Order> GetAll()
+            => context.Orders;
+
+        public Order? GetByID(int id)
+            => context.Orders.Find(id);
+
+        public void Insert(Order order)
             => context.Orders.Add(order);
 
-        public void UpdateOrder(Order order)
+        public void Update(Order order)
             => context.Entry(order).State = EntityState.Modified;
 
-        public bool DeleteOrder(int orderId)
+        public bool Delete(int orderId)
         {
             var order = context.Orders.Find(orderId);
             if (order == null) return false;

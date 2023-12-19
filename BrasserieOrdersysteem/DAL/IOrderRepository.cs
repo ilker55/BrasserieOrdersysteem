@@ -2,11 +2,7 @@
 
 namespace BrasserieOrdersysteem.DAL
 {
-    public interface IOrderRepository
+    public interface IOrderRepository : ICrudRepository<Order>
     {
-        void AddOrder(Order order);
-        void UpdateOrder(Order order);
-        bool DeleteOrder(int orderId);
-        void Save();
     }
 }

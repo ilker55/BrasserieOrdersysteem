@@ -2,13 +2,7 @@
 
 namespace BrasserieOrdersysteem.DAL
 {
-    public interface ICustomerRepository
+    public interface ICustomerRepository : ICrudRepository<Customer>
     {
-        IEnumerable<Customer> GetCustomers();
-        Customer? GetCustomerByID(int customerId);
-        void AddCustomer(Customer customer);
-        void UpdateCustomer(Customer customer);
-        bool DeleteCustomer(int customerId);
-        void Save();
     }
 }

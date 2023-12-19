@@ -1,4 +1,5 @@
 using BrasserieOrdersysteem.DAL;
+using BrasserieOrdersysteem.DAL.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);

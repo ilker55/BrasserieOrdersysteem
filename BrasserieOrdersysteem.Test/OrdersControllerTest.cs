@@ -1,5 +1,5 @@
 ﻿using BrasserieOrdersysteem.Controllers;
-using BrasserieOrdersysteem.DAL;
+using BrasserieOrdersysteem.DAL.Interfaces;
 using BrasserieOrdersysteem.Models;
 using Moq;
 using System;

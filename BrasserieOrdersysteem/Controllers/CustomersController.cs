@@ -1,6 +1,6 @@
 ﻿using BrasserieOrdersysteem.Models;
 using Microsoft.AspNetCore.Mvc;
-using BrasserieOrdersysteem.DAL;
+using BrasserieOrdersysteem.DAL.Interfaces;
 
 namespace BrasserieOrdersysteem.Controllers
 {

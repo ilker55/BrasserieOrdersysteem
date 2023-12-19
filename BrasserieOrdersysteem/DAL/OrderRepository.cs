@@ -9,7 +9,10 @@ namespace BrasserieOrdersysteem.DAL
         private readonly OrderSystemContext context;
 
         public OrderRepository(OrderSystemContext context)
-            => this.context = context;
+        {
+            this.context = context;
+            this.context.Database.EnsureCreated();
+        }
 
         public IEnumerable<Order> GetAll()
             => context.Orders;

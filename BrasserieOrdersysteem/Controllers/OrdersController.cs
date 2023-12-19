@@ -30,14 +30,14 @@ namespace BrasserieOrdersysteem.Controllers
 
         // POST: api/Orders
         [HttpPost]
-        public ActionResult CreateOrder(Order order)
+        public ActionResult<Order> CreateOrder(Order order)
         {
             // Add new order and save
             orderRepository.Insert(order);
             orderRepository.Save();
 
-            // Return Created
-            return StatusCode(201);
+            // Get and return new order
+            return CreatedAtAction(nameof(GetOrder), new { id = order.Id }, order);
         }
 
         // PUT: api/Orders/4
@@ -52,8 +52,8 @@ namespace BrasserieOrdersysteem.Controllers
             orderRepository.Update(order);
             orderRepository.Save();
 
-            // Return NoContent
-            return NoContent();
+            // Get and return updated order
+            return CreatedAtAction(nameof(GetOrder), new { id = order.Id }, order);
         }
 
         // DELETE: api/Orders/4

@@ -1,4 +1,4 @@
-﻿using BrasserieOrdersysteem.Models;
+using BrasserieOrdersysteem.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace BrasserieOrdersysteem.DAL

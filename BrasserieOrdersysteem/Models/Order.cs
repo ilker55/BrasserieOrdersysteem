@@ -11,7 +11,7 @@
         public int CustomerId { get; set; }
         public Customer Customer { get; set; } = null!;
 
-        public virtual ICollection<OrderRule> OrderRules { get; } = new List<OrderRule>();
+        public virtual ICollection<OrderRule> OrderRules { get; set; } = new List<OrderRule>();
 
         public decimal GetTotalPrice() => OrderRules.Sum(x => x.GetTotalPrice());
     }

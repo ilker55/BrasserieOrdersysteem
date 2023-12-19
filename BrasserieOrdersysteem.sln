@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrasserieOrdersysteem", "BrasserieOrdersysteem\BrasserieOrdersysteem.csproj", "{C1B9A75D-B054-4F9D-8DF9-4F326EE2A991}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrasserieOrdersysteem", "BrasserieOrdersysteem\BrasserieOrdersysteem.csproj", "{C1B9A75D-B054-4F9D-8DF9-4F326EE2A991}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrasserieOrdersysteem.Test", "BrasserieOrdersysteem.Test\BrasserieOrdersysteem.Test.csproj", "{EBA4FA2A-87E0-46D5-8742-9E82B8F79FCC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{C1B9A75D-B054-4F9D-8DF9-4F326EE2A991}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C1B9A75D-B054-4F9D-8DF9-4F326EE2A991}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C1B9A75D-B054-4F9D-8DF9-4F326EE2A991}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EBA4FA2A-87E0-46D5-8742-9E82B8F79FCC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBA4FA2A-87E0-46D5-8742-9E82B8F79FCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBA4FA2A-87E0-46D5-8742-9E82B8F79FCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBA4FA2A-87E0-46D5-8742-9E82B8F79FCC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
